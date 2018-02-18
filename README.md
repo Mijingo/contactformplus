@@ -2,12 +2,11 @@
 
 Adds ability to save form entries from first-party Contact Form plugin.
 
-![Screenshot](resources/screenshots/plugin_logo.png)
-
 ## Installation
 
 To install Contact Form+, follow these steps:
 
+1. Make sure you have the [Contact Form plugin from Pixel & Tonic](https://github.com/craftcms/contact-form) installed.
 1. Download & unzip the file and place the `contactformplus` directory into your `craft/plugins` directory
 2.  -OR- do a `git clone https://github.com/mijingo/contactformplus.git` directly into your `craft/plugins` folder.  You can then update it with `git pull`
 3.  -OR- install with Composer via `composer require mijingo/contactformplus`
