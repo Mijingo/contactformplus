@@ -1,0 +1,14 @@
+{
+	"name": "mijingo/contactformplus",
+	"description": "Adds ability to save form entries from first-party Contact Form plugin.",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Mijingo, LLC",
+			"homepage": "https://mijingo.com"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
