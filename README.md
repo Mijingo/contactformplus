@@ -1,3 +1,5 @@
+_DO NOT USE FOR CRAFT 3_
+
 # Contact Form+ plugin for Craft CMS
 
 Adds ability to save form entries from first-party Contact Form plugin.
