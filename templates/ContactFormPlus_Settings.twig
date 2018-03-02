@@ -26,14 +26,14 @@
     value: settings['craftSection']})
 }}
 
-{{ forms.textField(
+{# {{ forms.textField(
 	{
 		label: 'Name Field Handle',
 		instructions: 'The handle of the contact form field for the Name.',
    		id: 'nameField',
     	name: 'nameField',
 		value: settings['nameField']
-	}) 
+	})
 }}
 
 {{ forms.textField(
@@ -43,7 +43,7 @@
    		id: 'emailField',
     	name: 'emailField',
     	value: settings['emailField']
-	}) 
+	})
 }}
 
 {{ forms.textField(
@@ -53,7 +53,7 @@
    		id: 'phoneField',
     	name: 'phoneField',
     	value: settings['phoneField']
-	}) 
+	})
 }}
 
 {{ forms.textField(
@@ -63,5 +63,27 @@
    		id: 'messageField',
     	name: 'messageField',
     	value: settings['messageField']
-	}) 
-}}
+	})
+}} #}
+
+{{ forms.editableTableField({
+    'label': 'Field to Form Mapping',
+    'id': 'fieldToFormMapping',
+    'name': 'fieldToFormMapping',
+    'addRowLabel': 'Add a Field to Map',
+    'cols': {
+        'sectionField': {
+            'width': '25%',
+            'heading': 'Section Field',
+            'type': 'select',
+            'options': craftSectionFields,
+            'value': settings['fieldToFormMapping']
+        },
+        'formField': {
+            'heading': 'Form Field Name (e.g. fromName)',
+            'type': 'singleline',
+        },
+    },
+    'rows': settings.fieldToFormMapping ?? [''],
+    'instructions': 'Map your section fields to form fields. Only map the ones you want to save.'
+}) }}

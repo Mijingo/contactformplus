@@ -206,6 +206,7 @@ class ContactFormPlusPlugin extends BasePlugin
             'emailField' => array(AttributeType::String, 'label' => 'Email Field', 'default' => ''),
             'phoneField' => array(AttributeType::String, 'label' => 'Phone Field', 'default' => ''),
             'messageField' => array(AttributeType::String, 'label' => 'Message Field', 'default' => ''),
+            'fieldToFormMapping' => array(AttributeType::String, 'label' => 'Field to Form Mapping', 'default' => ''),
         );
     }
 
@@ -221,6 +222,21 @@ class ContactFormPlusPlugin extends BasePlugin
             'value' => ''
         ]];
 
+        $fieldsOptions = [[
+            'label' => 'Please select',
+            'value' => ''
+        ]];
+
+        foreach (craft()->fields->getAllFields() as $field)
+        {
+            $fieldsOptions[] = [
+              'label' => $field['name'],
+              'value' => $field['id']
+            ];
+
+        }
+
+
         foreach (craft()->sections->getAllSections() as $section)
         {
             $options[] = [
@@ -234,6 +250,7 @@ class ContactFormPlusPlugin extends BasePlugin
                     array(
                         'settings' => $this->getSettings(), 
                         'craftSections' => $options,
+                        'craftSectionFields' => $fieldsOptions,
             ));
     }
 

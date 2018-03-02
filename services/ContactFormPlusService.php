@@ -36,14 +36,27 @@ class ContactFormPlusService extends BaseApplicationComponent
     }
 
     private function _processSubmissionData($data) {
+
         $settings = craft()->plugins->getPlugin('contactformplus')->getSettings();
+        $formData = array();
         // set this as an array
-        $formData = array(
-            $settings->nameField    => $data->fromName,
-            $settings->emailField   => $data->fromEmail,
-            $settings->phoneField   => $data->messageFields['phone'],
-            $settings->messageField => $data->messageFields['body']
-        );
+//        var_dump($settings->fieldToFormMapping); die();
+
+        foreach ($settings->fieldToFormMapping as $fieldMapped)
+        {
+            // how can I get $data->fieldMapped['formField'] to output correctly
+            $formData[craft()->fields->getFieldById($fieldMapped['sectionField'])->handle] = $data->{$fieldMapped['formField']};
+        }
+
+//        $formData = array(
+//            $settings->nameField    => $data->fromName,
+//            $settings->emailField   => $data->fromEmail,
+//            $settings->phoneField   => $data->messageFields['phone'],
+//            $settings->messageField => $data->messageFields['body']
+//        );
+        print_r($data);
+        print_r($formData);
+        die();
 
         return $formData;
     }
